@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "aleks.ssp.v1;auth_v1";
+import "google/api/annotations.proto";
+
+service Auth {
+  rpc SignUp(SignUpRequest) returns (SignUpResponse) {
+    option (google.api.http) = {
+      post : "/v1/auth/signUp"
+      body : "*"
+    };
+  };
+  rpc SignIn(SignInRequest) returns (SignInResponse) {
+    option (google.api.http) = {
+      post : "/v1/auth/signIn"
+      body : "*"
+    };
+  };
+}
+
+message SignUpRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message SignUpResponse { string user_id = 1; }
+
+message SignInRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message SignInResponse { string token = 1; }
