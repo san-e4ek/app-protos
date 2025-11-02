@@ -4,7 +4,7 @@
 // 	protoc        v6.33.0
 // source: auth/auth.proto
 
-package auth_v1
+package v1
 
 import (
 	_ "google.golang.org/genproto/googleapis/api/annotations"
@@ -76,7 +76,7 @@ func (x *SignUpRequest) GetPassword() string {
 
 type SignUpResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=userId,proto3" json:"userId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -172,7 +172,8 @@ func (x *SignInRequest) GetPassword() string {
 
 type SignInResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	AccessToken   string                 `protobuf:"bytes,1,opt,name=accessToken,proto3" json:"accessToken,omitempty"`
+	RefreshToken  string                 `protobuf:"bytes,2,opt,name=refreshToken,proto3" json:"refreshToken,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -207,9 +208,16 @@ func (*SignInResponse) Descriptor() ([]byte, []int) {
 	return file_auth_auth_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *SignInResponse) GetToken() string {
+func (x *SignInResponse) GetAccessToken() string {
 	if x != nil {
-		return x.Token
+		return x.AccessToken
+	}
+	return ""
+}
+
+func (x *SignInResponse) GetRefreshToken() string {
+	if x != nil {
+		return x.RefreshToken
 	}
 	return ""
 }
@@ -218,20 +226,21 @@ var File_auth_auth_proto protoreflect.FileDescriptor
 
 const file_auth_auth_proto_rawDesc = "" +
 	"\n" +
-	"\x0fauth/auth.proto\x12\x04auth\x1a\x1cgoogle/api/annotations.proto\"A\n" +
+	"\x0fauth/auth.proto\x12\x06api_v1\x1a\x1cgoogle/api/annotations.proto\"A\n" +
 	"\rSignUpRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\")\n" +
-	"\x0eSignUpResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\"A\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"(\n" +
+	"\x0eSignUpResponse\x12\x16\n" +
+	"\x06userId\x18\x01 \x01(\tR\x06userId\"A\n" +
 	"\rSignInRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\"&\n" +
-	"\x0eSignInResponse\x12\x14\n" +
-	"\x05token\x18\x01 \x01(\tR\x05token2\xa8\x01\n" +
-	"\x04Auth\x12O\n" +
-	"\x06SignUp\x12\x13.auth.SignUpRequest\x1a\x14.auth.SignUpResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signUp\x12O\n" +
-	"\x06SignIn\x12\x13.auth.SignInRequest\x1a\x14.auth.SignInResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signInB\x16Z\x14aleks.ssp.v1;auth_v1b\x06proto3"
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"V\n" +
+	"\x0eSignInResponse\x12 \n" +
+	"\vaccessToken\x18\x01 \x01(\tR\vaccessToken\x12\"\n" +
+	"\frefreshToken\x18\x02 \x01(\tR\frefreshToken2\xb0\x01\n" +
+	"\x04Auth\x12S\n" +
+	"\x06SignUp\x12\x15.api_v1.SignUpRequest\x1a\x16.api_v1.SignUpResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signUp\x12S\n" +
+	"\x06SignIn\x12\x15.api_v1.SignInRequest\x1a\x16.api_v1.SignInResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signInB*Z(github.com/san-e4ek/app-protos/gen/go/v1b\x06proto3"
 
 var (
 	file_auth_auth_proto_rawDescOnce sync.Once
@@ -247,16 +256,16 @@ func file_auth_auth_proto_rawDescGZIP() []byte {
 
 var file_auth_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_auth_auth_proto_goTypes = []any{
-	(*SignUpRequest)(nil),  // 0: auth.SignUpRequest
-	(*SignUpResponse)(nil), // 1: auth.SignUpResponse
-	(*SignInRequest)(nil),  // 2: auth.SignInRequest
-	(*SignInResponse)(nil), // 3: auth.SignInResponse
+	(*SignUpRequest)(nil),  // 0: api_v1.SignUpRequest
+	(*SignUpResponse)(nil), // 1: api_v1.SignUpResponse
+	(*SignInRequest)(nil),  // 2: api_v1.SignInRequest
+	(*SignInResponse)(nil), // 3: api_v1.SignInResponse
 }
 var file_auth_auth_proto_depIdxs = []int32{
-	0, // 0: auth.Auth.SignUp:input_type -> auth.SignUpRequest
-	2, // 1: auth.Auth.SignIn:input_type -> auth.SignInRequest
-	1, // 2: auth.Auth.SignUp:output_type -> auth.SignUpResponse
-	3, // 3: auth.Auth.SignIn:output_type -> auth.SignInResponse
+	0, // 0: api_v1.Auth.SignUp:input_type -> api_v1.SignUpRequest
+	2, // 1: api_v1.Auth.SignIn:input_type -> api_v1.SignInRequest
+	1, // 2: api_v1.Auth.SignUp:output_type -> api_v1.SignUpResponse
+	3, // 3: api_v1.Auth.SignIn:output_type -> api_v1.SignInResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

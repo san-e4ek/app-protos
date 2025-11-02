@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "auth/auth.proto",
+    "title": "profile/profile.proto",
     "version": "version not set"
   },
   "tags": [
     {
-      "name": "Auth"
+      "name": "Profile"
     }
   ],
   "consumes": [
@@ -16,14 +16,14 @@
     "application/json"
   ],
   "paths": {
-    "/v1/auth/signIn": {
-      "post": {
-        "operationId": "Auth_SignIn",
+    "/v1/profile/getProfile/{userId}": {
+      "get": {
+        "operationId": "Profile_GetProfile",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/api_v1SignInResponse"
+              "$ref": "#/definitions/api_v1GetProfileResponse"
             }
           },
           "default": {
@@ -35,27 +35,47 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
+            "name": "userId",
+            "in": "path",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/api_v1SignInRequest"
-            }
+            "type": "string"
           }
         ],
         "tags": [
-          "Auth"
+          "Profile"
         ]
       }
     },
-    "/v1/auth/signUp": {
-      "post": {
-        "operationId": "Auth_SignUp",
+    "/v1/profile/getUserProfile": {
+      "get": {
+        "operationId": "Profile_GetUserProfile",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/api_v1SignUpResponse"
+              "$ref": "#/definitions/api_v1GetUserProfileResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/v1/profile/updateProfile/{userId}": {
+      "post": {
+        "operationId": "Profile_UpdateProfile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/api_v1UpdateProfileResponse"
             }
           },
           "default": {
@@ -67,55 +87,73 @@
         },
         "parameters": [
           {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/api_v1SignUpRequest"
+              "$ref": "#/definitions/ProfileUpdateProfileBody"
             }
           }
         ],
         "tags": [
-          "Auth"
+          "Profile"
         ]
       }
     }
   },
   "definitions": {
-    "api_v1SignInRequest": {
+    "ProfileUpdateProfileBody": {
       "type": "object",
       "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "api_v1GetProfileResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
         "email": {
           "type": "string"
         },
-        "password": {
-          "type": "string"
-        }
-      }
-    },
-    "api_v1SignInResponse": {
-      "type": "object",
-      "properties": {
-        "accessToken": {
+        "firstName": {
           "type": "string"
         },
-        "refreshToken": {
+        "lastName": {
           "type": "string"
         }
       }
     },
-    "api_v1SignUpRequest": {
+    "api_v1GetUserProfileResponse": {
       "type": "object",
       "properties": {
+        "userId": {
+          "type": "string"
+        },
         "email": {
           "type": "string"
         },
-        "password": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
           "type": "string"
         }
       }
     },
-    "api_v1SignUpResponse": {
+    "api_v1UpdateProfileResponse": {
       "type": "object",
       "properties": {
         "userId": {

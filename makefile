@@ -1,4 +1,4 @@
-.PHONY: codegen codegen-install clean
+.PHONY: codegen codegen-install clean google-api-install
 
 # === Настройки ===
 PROTO_DIR := proto
@@ -32,4 +32,4 @@ google-api-install:
 
 # === Очистка сгенерированных файлов ===
 clean:
-	rm -rf $(OUT_DIR) $(OPENAPI_DIR)
+	rm -rf $(OUT_DIR)/ $(OPENAPI_DIR)/
