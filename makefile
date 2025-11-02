@@ -32,4 +32,6 @@ google-api-install:
 
 # === Очистка сгенерированных файлов ===
 clean:
-	rm -rf $(OUT_DIR)/ $(OPENAPI_DIR)/
+	@echo "🧹 Cleaning generated folders..."
+	@rm -rf $(OUT_DIR)/* $(OPENAPI_DIR)/* 2>/dev/null || true
+	@echo "✅ Done!"
