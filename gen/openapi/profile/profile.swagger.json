@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/v1/profile/getProfile/{userId}": {
+    "/api/v1/profile/getProfile/{userId}": {
       "get": {
         "operationId": "Profile_GetProfile",
         "responses": {
@@ -46,7 +46,7 @@
         ]
       }
     },
-    "/v1/profile/getUserProfile": {
+    "/api/v1/profile/getUserProfile": {
       "get": {
         "operationId": "Profile_GetUserProfile",
         "responses": {
@@ -68,7 +68,7 @@
         ]
       }
     },
-    "/v1/profile/updateProfile/{userId}": {
+    "/api/v1/profile/updateProfile/{userId}": {
       "post": {
         "operationId": "Profile_UpdateProfile",
         "responses": {

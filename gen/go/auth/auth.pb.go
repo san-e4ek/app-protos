@@ -237,10 +237,10 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\"V\n" +
 	"\x0eSignInResponse\x12 \n" +
 	"\vaccessToken\x18\x01 \x01(\tR\vaccessToken\x12\"\n" +
-	"\frefreshToken\x18\x02 \x01(\tR\frefreshToken2\xb0\x01\n" +
-	"\x04Auth\x12S\n" +
-	"\x06SignUp\x12\x15.api.v1.SignUpRequest\x1a\x16.api.v1.SignUpResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signUp\x12S\n" +
-	"\x06SignIn\x12\x15.api.v1.SignInRequest\x1a\x16.api.v1.SignInResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signInB,Z*github.com/san-e4ek/app-protos/gen/go/authb\x06proto3"
+	"\frefreshToken\x18\x02 \x01(\tR\frefreshToken2\xb8\x01\n" +
+	"\x04Auth\x12W\n" +
+	"\x06SignUp\x12\x15.api.v1.SignUpRequest\x1a\x16.api.v1.SignUpResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/api/v1/auth/signUp\x12W\n" +
+	"\x06SignIn\x12\x15.api.v1.SignInRequest\x1a\x16.api.v1.SignInResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/api/v1/auth/signInB,Z*github.com/san-e4ek/app-protos/gen/go/authb\x06proto3"
 
 var (
 	file_auth_auth_proto_rawDescOnce sync.Once

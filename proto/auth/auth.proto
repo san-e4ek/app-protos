@@ -8,13 +8,13 @@ import "google/api/annotations.proto";
 service Auth {
   rpc SignUp(SignUpRequest) returns (SignUpResponse) {
     option (google.api.http) = {
-      post : "/v1/auth/signUp"
+      post : "/api/v1/auth/signUp"
       body : "*"
     };
   };
   rpc SignIn(SignInRequest) returns (SignInResponse) {
     option (google.api.http) = {
-      post : "/v1/auth/signIn"
+      post : "/api/v1/auth/signIn"
       body : "*"
     };
   };

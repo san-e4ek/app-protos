@@ -365,12 +365,12 @@ const file_profile_profile_proto_rawDesc = "" +
 	"\tfirstName\x18\x02 \x01(\tR\tfirstName\x12\x1a\n" +
 	"\blastName\x18\x03 \x01(\tR\blastName\"/\n" +
 	"\x15UpdateProfileResponse\x12\x16\n" +
-	"\x06userId\x18\x01 \x01(\tR\x06userId2\xe9\x02\n" +
-	"\aProfile\x12s\n" +
-	"\x0eGetUserProfile\x12\x1d.api.v1.GetUserProfileRequest\x1a\x1e.api.v1.GetUserProfileResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/profile/getUserProfile\x12l\n" +
+	"\x06userId\x18\x01 \x01(\tR\x06userId2\xf5\x02\n" +
+	"\aProfile\x12w\n" +
+	"\x0eGetUserProfile\x12\x1d.api.v1.GetUserProfileRequest\x1a\x1e.api.v1.GetUserProfileResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/api/v1/profile/getUserProfile\x12p\n" +
 	"\n" +
-	"GetProfile\x12\x19.api.v1.GetProfileRequest\x1a\x1a.api.v1.GetProfileResponse\"'\x82\xd3\xe4\x93\x02!\x12\x1f/v1/profile/getProfile/{userId}\x12{\n" +
-	"\rUpdateProfile\x12\x1c.api.v1.UpdateProfileRequest\x1a\x1d.api.v1.UpdateProfileResponse\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/v1/profile/updateProfile/{userId}B/Z-github.com/san-e4ek/app-protos/gen/go/profileb\x06proto3"
+	"GetProfile\x12\x19.api.v1.GetProfileRequest\x1a\x1a.api.v1.GetProfileResponse\"+\x82\xd3\xe4\x93\x02%\x12#/api/v1/profile/getProfile/{userId}\x12\x7f\n" +
+	"\rUpdateProfile\x12\x1c.api.v1.UpdateProfileRequest\x1a\x1d.api.v1.UpdateProfileResponse\"1\x82\xd3\xe4\x93\x02+:\x01*\"&/api/v1/profile/updateProfile/{userId}B/Z-github.com/san-e4ek/app-protos/gen/go/profileb\x06proto3"
 
 var (
 	file_profile_profile_proto_rawDescOnce sync.Once
