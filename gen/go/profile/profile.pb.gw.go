@@ -2,11 +2,11 @@
 // source: profile/profile.proto
 
 /*
-Package v1 is a reverse proxy.
+Package profile is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package v1
+package profile
 
 import (
 	"context"
@@ -152,7 +152,7 @@ func RegisterProfileHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api_v1.Profile/GetUserProfile", runtime.WithHTTPPathPattern("/v1/profile/getUserProfile"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api.v1.Profile/GetUserProfile", runtime.WithHTTPPathPattern("/v1/profile/getUserProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -172,7 +172,7 @@ func RegisterProfileHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api_v1.Profile/GetProfile", runtime.WithHTTPPathPattern("/v1/profile/getProfile/{userId}"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api.v1.Profile/GetProfile", runtime.WithHTTPPathPattern("/v1/profile/getProfile/{userId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -192,7 +192,7 @@ func RegisterProfileHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api_v1.Profile/UpdateProfile", runtime.WithHTTPPathPattern("/v1/profile/updateProfile/{userId}"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api.v1.Profile/UpdateProfile", runtime.WithHTTPPathPattern("/v1/profile/updateProfile/{userId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -250,7 +250,7 @@ func RegisterProfileHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api_v1.Profile/GetUserProfile", runtime.WithHTTPPathPattern("/v1/profile/getUserProfile"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api.v1.Profile/GetUserProfile", runtime.WithHTTPPathPattern("/v1/profile/getUserProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -267,7 +267,7 @@ func RegisterProfileHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api_v1.Profile/GetProfile", runtime.WithHTTPPathPattern("/v1/profile/getProfile/{userId}"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api.v1.Profile/GetProfile", runtime.WithHTTPPathPattern("/v1/profile/getProfile/{userId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -284,7 +284,7 @@ func RegisterProfileHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api_v1.Profile/UpdateProfile", runtime.WithHTTPPathPattern("/v1/profile/updateProfile/{userId}"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api.v1.Profile/UpdateProfile", runtime.WithHTTPPathPattern("/v1/profile/updateProfile/{userId}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

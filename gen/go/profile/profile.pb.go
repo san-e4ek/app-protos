@@ -4,7 +4,7 @@
 // 	protoc        v6.33.0
 // source: profile/profile.proto
 
-package v1
+package profile
 
 import (
 	_ "google.golang.org/genproto/googleapis/api/annotations"
@@ -346,7 +346,7 @@ var File_profile_profile_proto protoreflect.FileDescriptor
 
 const file_profile_profile_proto_rawDesc = "" +
 	"\n" +
-	"\x15profile/profile.proto\x12\x06api_v1\x1a\x1cgoogle/api/annotations.proto\"\x17\n" +
+	"\x15profile/profile.proto\x12\x06api.v1\x1a\x1cgoogle/api/annotations.proto\"\x17\n" +
 	"\x15GetUserProfileRequest\"\x80\x01\n" +
 	"\x16GetUserProfileResponse\x12\x16\n" +
 	"\x06userId\x18\x01 \x01(\tR\x06userId\x12\x14\n" +
@@ -367,10 +367,10 @@ const file_profile_profile_proto_rawDesc = "" +
 	"\x15UpdateProfileResponse\x12\x16\n" +
 	"\x06userId\x18\x01 \x01(\tR\x06userId2\xe9\x02\n" +
 	"\aProfile\x12s\n" +
-	"\x0eGetUserProfile\x12\x1d.api_v1.GetUserProfileRequest\x1a\x1e.api_v1.GetUserProfileResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/profile/getUserProfile\x12l\n" +
+	"\x0eGetUserProfile\x12\x1d.api.v1.GetUserProfileRequest\x1a\x1e.api.v1.GetUserProfileResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/profile/getUserProfile\x12l\n" +
 	"\n" +
-	"GetProfile\x12\x19.api_v1.GetProfileRequest\x1a\x1a.api_v1.GetProfileResponse\"'\x82\xd3\xe4\x93\x02!\x12\x1f/v1/profile/getProfile/{userId}\x12{\n" +
-	"\rUpdateProfile\x12\x1c.api_v1.UpdateProfileRequest\x1a\x1d.api_v1.UpdateProfileResponse\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/v1/profile/updateProfile/{userId}B*Z(github.com/san-e4ek/app-protos/gen/go/v1b\x06proto3"
+	"GetProfile\x12\x19.api.v1.GetProfileRequest\x1a\x1a.api.v1.GetProfileResponse\"'\x82\xd3\xe4\x93\x02!\x12\x1f/v1/profile/getProfile/{userId}\x12{\n" +
+	"\rUpdateProfile\x12\x1c.api.v1.UpdateProfileRequest\x1a\x1d.api.v1.UpdateProfileResponse\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/v1/profile/updateProfile/{userId}B/Z-github.com/san-e4ek/app-protos/gen/go/profileb\x06proto3"
 
 var (
 	file_profile_profile_proto_rawDescOnce sync.Once
@@ -386,20 +386,20 @@ func file_profile_profile_proto_rawDescGZIP() []byte {
 
 var file_profile_profile_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_profile_profile_proto_goTypes = []any{
-	(*GetUserProfileRequest)(nil),  // 0: api_v1.GetUserProfileRequest
-	(*GetUserProfileResponse)(nil), // 1: api_v1.GetUserProfileResponse
-	(*GetProfileRequest)(nil),      // 2: api_v1.GetProfileRequest
-	(*GetProfileResponse)(nil),     // 3: api_v1.GetProfileResponse
-	(*UpdateProfileRequest)(nil),   // 4: api_v1.UpdateProfileRequest
-	(*UpdateProfileResponse)(nil),  // 5: api_v1.UpdateProfileResponse
+	(*GetUserProfileRequest)(nil),  // 0: api.v1.GetUserProfileRequest
+	(*GetUserProfileResponse)(nil), // 1: api.v1.GetUserProfileResponse
+	(*GetProfileRequest)(nil),      // 2: api.v1.GetProfileRequest
+	(*GetProfileResponse)(nil),     // 3: api.v1.GetProfileResponse
+	(*UpdateProfileRequest)(nil),   // 4: api.v1.UpdateProfileRequest
+	(*UpdateProfileResponse)(nil),  // 5: api.v1.UpdateProfileResponse
 }
 var file_profile_profile_proto_depIdxs = []int32{
-	0, // 0: api_v1.Profile.GetUserProfile:input_type -> api_v1.GetUserProfileRequest
-	2, // 1: api_v1.Profile.GetProfile:input_type -> api_v1.GetProfileRequest
-	4, // 2: api_v1.Profile.UpdateProfile:input_type -> api_v1.UpdateProfileRequest
-	1, // 3: api_v1.Profile.GetUserProfile:output_type -> api_v1.GetUserProfileResponse
-	3, // 4: api_v1.Profile.GetProfile:output_type -> api_v1.GetProfileResponse
-	5, // 5: api_v1.Profile.UpdateProfile:output_type -> api_v1.UpdateProfileResponse
+	0, // 0: api.v1.Profile.GetUserProfile:input_type -> api.v1.GetUserProfileRequest
+	2, // 1: api.v1.Profile.GetProfile:input_type -> api.v1.GetProfileRequest
+	4, // 2: api.v1.Profile.UpdateProfile:input_type -> api.v1.UpdateProfileRequest
+	1, // 3: api.v1.Profile.GetUserProfile:output_type -> api.v1.GetUserProfileResponse
+	3, // 4: api.v1.Profile.GetProfile:output_type -> api.v1.GetProfileResponse
+	5, // 5: api.v1.Profile.UpdateProfile:output_type -> api.v1.UpdateProfileResponse
 	3, // [3:6] is the sub-list for method output_type
 	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

@@ -23,7 +23,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/api_v1GetProfileResponse"
+              "$ref": "#/definitions/v1GetProfileResponse"
             }
           },
           "default": {
@@ -53,7 +53,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/api_v1GetUserProfileResponse"
+              "$ref": "#/definitions/v1GetUserProfileResponse"
             }
           },
           "default": {
@@ -75,7 +75,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/api_v1UpdateProfileResponse"
+              "$ref": "#/definitions/v1UpdateProfileResponse"
             }
           },
           "default": {
@@ -119,48 +119,6 @@
         }
       }
     },
-    "api_v1GetProfileResponse": {
-      "type": "object",
-      "properties": {
-        "userId": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        }
-      }
-    },
-    "api_v1GetUserProfileResponse": {
-      "type": "object",
-      "properties": {
-        "userId": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        }
-      }
-    },
-    "api_v1UpdateProfileResponse": {
-      "type": "object",
-      "properties": {
-        "userId": {
-          "type": "string"
-        }
-      }
-    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -186,6 +144,48 @@
             "type": "object",
             "$ref": "#/definitions/protobufAny"
           }
+        }
+      }
+    },
+    "v1GetProfileResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GetUserProfileResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UpdateProfileResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
         }
       }
     }

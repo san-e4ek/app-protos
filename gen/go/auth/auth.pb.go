@@ -4,7 +4,7 @@
 // 	protoc        v6.33.0
 // source: auth/auth.proto
 
-package v1
+package auth
 
 import (
 	_ "google.golang.org/genproto/googleapis/api/annotations"
@@ -240,7 +240,7 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\frefreshToken\x18\x02 \x01(\tR\frefreshToken2\xb0\x01\n" +
 	"\x04Auth\x12S\n" +
 	"\x06SignUp\x12\x15.api_v1.SignUpRequest\x1a\x16.api_v1.SignUpResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signUp\x12S\n" +
-	"\x06SignIn\x12\x15.api_v1.SignInRequest\x1a\x16.api_v1.SignInResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signInB*Z(github.com/san-e4ek/app-protos/gen/go/v1b\x06proto3"
+	"\x06SignIn\x12\x15.api_v1.SignInRequest\x1a\x16.api_v1.SignInResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signInB,Z*github.com/san-e4ek/app-protos/gen/go/authb\x06proto3"
 
 var (
 	file_auth_auth_proto_rawDescOnce sync.Once

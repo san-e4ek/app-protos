@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package api_v1;
+package api.v1;
 
-option go_package = "github.com/san-e4ek/app-protos/gen/go/v1";
+option go_package = "github.com/san-e4ek/app-protos/gen/go/profile";
 import "google/api/annotations.proto";
 
 service Profile {

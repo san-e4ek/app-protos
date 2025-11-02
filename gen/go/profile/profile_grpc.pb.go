@@ -4,7 +4,7 @@
 // - protoc             v6.33.0
 // source: profile/profile.proto
 
-package v1
+package profile
 
 import (
 	context "context"
@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Profile_GetUserProfile_FullMethodName = "/api_v1.Profile/GetUserProfile"
-	Profile_GetProfile_FullMethodName     = "/api_v1.Profile/GetProfile"
-	Profile_UpdateProfile_FullMethodName  = "/api_v1.Profile/UpdateProfile"
+	Profile_GetUserProfile_FullMethodName = "/api.v1.Profile/GetUserProfile"
+	Profile_GetProfile_FullMethodName     = "/api.v1.Profile/GetProfile"
+	Profile_UpdateProfile_FullMethodName  = "/api.v1.Profile/UpdateProfile"
 )
 
 // ProfileClient is the client API for Profile service.
@@ -176,7 +176,7 @@ func _Profile_UpdateProfile_Handler(srv interface{}, ctx context.Context, dec fu
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Profile_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "api_v1.Profile",
+	ServiceName: "api.v1.Profile",
 	HandlerType: (*ProfileServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

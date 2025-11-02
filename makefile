@@ -35,3 +35,7 @@ clean:
 	@echo "🧹 Cleaning generated folders..."
 	@rm -rf $(OUT_DIR)/* $(OPENAPI_DIR)/* 2>/dev/null || true
 	@echo "✅ Done!"
+
+	# === Очистка + регенерация ===
+regen: clean codegen
+	@echo "🔄 Re-generated protobuf and gRPC code!"
