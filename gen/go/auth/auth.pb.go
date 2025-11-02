@@ -226,7 +226,7 @@ var File_auth_auth_proto protoreflect.FileDescriptor
 
 const file_auth_auth_proto_rawDesc = "" +
 	"\n" +
-	"\x0fauth/auth.proto\x12\x06api_v1\x1a\x1cgoogle/api/annotations.proto\"A\n" +
+	"\x0fauth/auth.proto\x12\x06api.v1\x1a\x1cgoogle/api/annotations.proto\"A\n" +
 	"\rSignUpRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\"(\n" +
@@ -239,8 +239,8 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\vaccessToken\x18\x01 \x01(\tR\vaccessToken\x12\"\n" +
 	"\frefreshToken\x18\x02 \x01(\tR\frefreshToken2\xb0\x01\n" +
 	"\x04Auth\x12S\n" +
-	"\x06SignUp\x12\x15.api_v1.SignUpRequest\x1a\x16.api_v1.SignUpResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signUp\x12S\n" +
-	"\x06SignIn\x12\x15.api_v1.SignInRequest\x1a\x16.api_v1.SignInResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signInB,Z*github.com/san-e4ek/app-protos/gen/go/authb\x06proto3"
+	"\x06SignUp\x12\x15.api.v1.SignUpRequest\x1a\x16.api.v1.SignUpResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signUp\x12S\n" +
+	"\x06SignIn\x12\x15.api.v1.SignInRequest\x1a\x16.api.v1.SignInResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/auth/signInB,Z*github.com/san-e4ek/app-protos/gen/go/authb\x06proto3"
 
 var (
 	file_auth_auth_proto_rawDescOnce sync.Once
@@ -256,16 +256,16 @@ func file_auth_auth_proto_rawDescGZIP() []byte {
 
 var file_auth_auth_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_auth_auth_proto_goTypes = []any{
-	(*SignUpRequest)(nil),  // 0: api_v1.SignUpRequest
-	(*SignUpResponse)(nil), // 1: api_v1.SignUpResponse
-	(*SignInRequest)(nil),  // 2: api_v1.SignInRequest
-	(*SignInResponse)(nil), // 3: api_v1.SignInResponse
+	(*SignUpRequest)(nil),  // 0: api.v1.SignUpRequest
+	(*SignUpResponse)(nil), // 1: api.v1.SignUpResponse
+	(*SignInRequest)(nil),  // 2: api.v1.SignInRequest
+	(*SignInResponse)(nil), // 3: api.v1.SignInResponse
 }
 var file_auth_auth_proto_depIdxs = []int32{
-	0, // 0: api_v1.Auth.SignUp:input_type -> api_v1.SignUpRequest
-	2, // 1: api_v1.Auth.SignIn:input_type -> api_v1.SignInRequest
-	1, // 2: api_v1.Auth.SignUp:output_type -> api_v1.SignUpResponse
-	3, // 3: api_v1.Auth.SignIn:output_type -> api_v1.SignInResponse
+	0, // 0: api.v1.Auth.SignUp:input_type -> api.v1.SignUpRequest
+	2, // 1: api.v1.Auth.SignIn:input_type -> api.v1.SignInRequest
+	1, // 2: api.v1.Auth.SignUp:output_type -> api.v1.SignUpResponse
+	3, // 3: api.v1.Auth.SignIn:output_type -> api.v1.SignInResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
