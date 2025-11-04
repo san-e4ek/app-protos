@@ -24,7 +24,7 @@ const (
 
 type GetProfileRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=userId,proto3" json:"userId,omitempty"`
+	UserId        int64                  `protobuf:"varint,1,opt,name=userId,proto3" json:"userId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -59,16 +59,16 @@ func (*GetProfileRequest) Descriptor() ([]byte, []int) {
 	return file_profile_profile_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetProfileRequest) GetUserId() string {
+func (x *GetProfileRequest) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 type GetProfileResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=userId,proto3" json:"userId,omitempty"`
+	UserId        int64                  `protobuf:"varint,1,opt,name=userId,proto3" json:"userId,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	FirstName     string                 `protobuf:"bytes,3,opt,name=firstName,proto3" json:"firstName,omitempty"`
 	LastName      string                 `protobuf:"bytes,4,opt,name=lastName,proto3" json:"lastName,omitempty"`
@@ -106,11 +106,11 @@ func (*GetProfileResponse) Descriptor() ([]byte, []int) {
 	return file_profile_profile_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetProfileResponse) GetUserId() string {
+func (x *GetProfileResponse) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *GetProfileResponse) GetEmail() string {
@@ -136,7 +136,7 @@ func (x *GetProfileResponse) GetLastName() string {
 
 type UpdateProfileRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=userId,proto3" json:"userId,omitempty"`
+	UserId        int64                  `protobuf:"varint,1,opt,name=userId,proto3" json:"userId,omitempty"`
 	FirstName     string                 `protobuf:"bytes,2,opt,name=firstName,proto3" json:"firstName,omitempty"`
 	LastName      string                 `protobuf:"bytes,3,opt,name=lastName,proto3" json:"lastName,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -173,11 +173,11 @@ func (*UpdateProfileRequest) Descriptor() ([]byte, []int) {
 	return file_profile_profile_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *UpdateProfileRequest) GetUserId() string {
+func (x *UpdateProfileRequest) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *UpdateProfileRequest) GetFirstName() string {
@@ -196,7 +196,7 @@ func (x *UpdateProfileRequest) GetLastName() string {
 
 type UpdateProfileResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=userId,proto3" json:"userId,omitempty"`
+	UserId        int64                  `protobuf:"varint,1,opt,name=userId,proto3" json:"userId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -231,11 +231,11 @@ func (*UpdateProfileResponse) Descriptor() ([]byte, []int) {
 	return file_profile_profile_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *UpdateProfileResponse) GetUserId() string {
+func (x *UpdateProfileResponse) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 var File_profile_profile_proto protoreflect.FileDescriptor
@@ -244,18 +244,18 @@ const file_profile_profile_proto_rawDesc = "" +
 	"\n" +
 	"\x15profile/profile.proto\x12\x06api.v1\x1a\x1cgoogle/api/annotations.proto\"+\n" +
 	"\x11GetProfileRequest\x12\x16\n" +
-	"\x06userId\x18\x01 \x01(\tR\x06userId\"|\n" +
+	"\x06userId\x18\x01 \x01(\x03R\x06userId\"|\n" +
 	"\x12GetProfileResponse\x12\x16\n" +
-	"\x06userId\x18\x01 \x01(\tR\x06userId\x12\x14\n" +
+	"\x06userId\x18\x01 \x01(\x03R\x06userId\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1c\n" +
 	"\tfirstName\x18\x03 \x01(\tR\tfirstName\x12\x1a\n" +
 	"\blastName\x18\x04 \x01(\tR\blastName\"h\n" +
 	"\x14UpdateProfileRequest\x12\x16\n" +
-	"\x06userId\x18\x01 \x01(\tR\x06userId\x12\x1c\n" +
+	"\x06userId\x18\x01 \x01(\x03R\x06userId\x12\x1c\n" +
 	"\tfirstName\x18\x02 \x01(\tR\tfirstName\x12\x1a\n" +
 	"\blastName\x18\x03 \x01(\tR\blastName\"/\n" +
 	"\x15UpdateProfileResponse\x12\x16\n" +
-	"\x06userId\x18\x01 \x01(\tR\x06userId2\xfc\x01\n" +
+	"\x06userId\x18\x01 \x01(\x03R\x06userId2\xfc\x01\n" +
 	"\aProfile\x12p\n" +
 	"\n" +
 	"GetProfile\x12\x19.api.v1.GetProfileRequest\x1a\x1a.api.v1.GetProfileResponse\"+\x82\xd3\xe4\x93\x02%\x12#/api/v1/profile/getProfile/{userId}\x12\x7f\n" +

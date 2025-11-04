@@ -60,7 +60,7 @@ func (*GetUserRequest) Descriptor() ([]byte, []int) {
 
 type GetUserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=userId,proto3" json:"userId,omitempty"`
+	UserId        int64                  `protobuf:"varint,1,opt,name=userId,proto3" json:"userId,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	Roles         []string               `protobuf:"bytes,3,rep,name=roles,proto3" json:"roles,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -97,11 +97,11 @@ func (*GetUserResponse) Descriptor() ([]byte, []int) {
 	return file_auth_auth_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetUserResponse) GetUserId() string {
+func (x *GetUserResponse) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
-	return ""
+	return 0
 }
 
 func (x *GetUserResponse) GetEmail() string {
@@ -413,7 +413,7 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\x0fauth/auth.proto\x12\x06api.v1\x1a\x1cgoogle/api/annotations.proto\"\x10\n" +
 	"\x0eGetUserRequest\"U\n" +
 	"\x0fGetUserResponse\x12\x16\n" +
-	"\x06userId\x18\x01 \x01(\tR\x06userId\x12\x14\n" +
+	"\x06userId\x18\x01 \x01(\x03R\x06userId\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x14\n" +
 	"\x05roles\x18\x03 \x03(\tR\x05roles\"9\n" +
 	"\x13RefreshTokenRequest\x12\"\n" +

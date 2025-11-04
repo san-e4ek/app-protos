@@ -168,7 +168,8 @@
       "type": "object",
       "properties": {
         "userId": {
-          "type": "string"
+          "type": "string",
+          "format": "int64"
         },
         "email": {
           "type": "string"
