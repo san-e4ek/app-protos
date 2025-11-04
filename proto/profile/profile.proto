@@ -36,6 +36,4 @@ message UpdateProfileRequest {
   string lastName = 3;
 }
 
-message UpdateProfileResponse {
-  int64 userId = 1;
-}
+message UpdateProfileResponse {}

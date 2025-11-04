@@ -146,13 +146,7 @@
       }
     },
     "v1UpdateProfileResponse": {
-      "type": "object",
-      "properties": {
-        "userId": {
-          "type": "string",
-          "format": "int64"
-        }
-      }
+      "type": "object"
     }
   }
 }
