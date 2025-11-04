@@ -19,16 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Profile_GetUserProfile_FullMethodName = "/api.v1.Profile/GetUserProfile"
-	Profile_GetProfile_FullMethodName     = "/api.v1.Profile/GetProfile"
-	Profile_UpdateProfile_FullMethodName  = "/api.v1.Profile/UpdateProfile"
+	Profile_GetProfile_FullMethodName    = "/api.v1.Profile/GetProfile"
+	Profile_UpdateProfile_FullMethodName = "/api.v1.Profile/UpdateProfile"
 )
 
 // ProfileClient is the client API for Profile service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProfileClient interface {
-	GetUserProfile(ctx context.Context, in *GetUserProfileRequest, opts ...grpc.CallOption) (*GetUserProfileResponse, error)
 	GetProfile(ctx context.Context, in *GetProfileRequest, opts ...grpc.CallOption) (*GetProfileResponse, error)
 	UpdateProfile(ctx context.Context, in *UpdateProfileRequest, opts ...grpc.CallOption) (*UpdateProfileResponse, error)
 }
@@ -39,16 +37,6 @@ type profileClient struct {
 
 func NewProfileClient(cc grpc.ClientConnInterface) ProfileClient {
 	return &profileClient{cc}
-}
-
-func (c *profileClient) GetUserProfile(ctx context.Context, in *GetUserProfileRequest, opts ...grpc.CallOption) (*GetUserProfileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserProfileResponse)
-	err := c.cc.Invoke(ctx, Profile_GetUserProfile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *profileClient) GetProfile(ctx context.Context, in *GetProfileRequest, opts ...grpc.CallOption) (*GetProfileResponse, error) {
@@ -75,7 +63,6 @@ func (c *profileClient) UpdateProfile(ctx context.Context, in *UpdateProfileRequ
 // All implementations must embed UnimplementedProfileServer
 // for forward compatibility.
 type ProfileServer interface {
-	GetUserProfile(context.Context, *GetUserProfileRequest) (*GetUserProfileResponse, error)
 	GetProfile(context.Context, *GetProfileRequest) (*GetProfileResponse, error)
 	UpdateProfile(context.Context, *UpdateProfileRequest) (*UpdateProfileResponse, error)
 	mustEmbedUnimplementedProfileServer()
@@ -88,9 +75,6 @@ type ProfileServer interface {
 // pointer dereference when methods are called.
 type UnimplementedProfileServer struct{}
 
-func (UnimplementedProfileServer) GetUserProfile(context.Context, *GetUserProfileRequest) (*GetUserProfileResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserProfile not implemented")
-}
 func (UnimplementedProfileServer) GetProfile(context.Context, *GetProfileRequest) (*GetProfileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProfile not implemented")
 }
@@ -116,24 +100,6 @@ func RegisterProfileServer(s grpc.ServiceRegistrar, srv ProfileServer) {
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&Profile_ServiceDesc, srv)
-}
-
-func _Profile_GetUserProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProfileServer).GetUserProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Profile_GetUserProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProfileServer).GetUserProfile(ctx, req.(*GetUserProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _Profile_GetProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -179,10 +145,6 @@ var Profile_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "api.v1.Profile",
 	HandlerType: (*ProfileServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetUserProfile",
-			Handler:    _Profile_GetUserProfile_Handler,
-		},
 		{
 			MethodName: "GetProfile",
 			Handler:    _Profile_GetProfile_Handler,

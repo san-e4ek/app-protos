@@ -18,8 +18,33 @@ service Auth {
       body : "*"
     };
   };
+  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {
+    option (google.api.http) = {
+      post : "/api/v1/auth/refreshToken"
+      body : "*"
+    };
+  };
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {
+    option (google.api.http) = {
+      get : "/api/v1/auth/getUser"
+    };
+  };
 }
 
+message GetUserRequest {}
+
+message GetUserResponse {
+  string userId = 1;
+  string email = 2;
+  repeated string roles = 3;
+}
+
+message RefreshTokenRequest { string refreshToken = 1; }
+
+message RefreshTokenResponse {
+  string accessToken = 1;
+  string refreshToken = 2;
+}
 message SignUpRequest {
   string email = 1;
   string password = 2;

@@ -46,28 +46,6 @@
         ]
       }
     },
-    "/api/v1/profile/getUserProfile": {
-      "get": {
-        "operationId": "Profile_GetUserProfile",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1GetUserProfileResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Profile"
-        ]
-      }
-    },
     "/api/v1/profile/updateProfile/{userId}": {
       "post": {
         "operationId": "Profile_UpdateProfile",
@@ -148,23 +126,6 @@
       }
     },
     "v1GetProfileResponse": {
-      "type": "object",
-      "properties": {
-        "userId": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        }
-      }
-    },
-    "v1GetUserProfileResponse": {
       "type": "object",
       "properties": {
         "userId": {

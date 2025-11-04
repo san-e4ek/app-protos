@@ -35,27 +35,6 @@ var (
 	_ = metadata.Join
 )
 
-func request_Profile_GetUserProfile_0(ctx context.Context, marshaler runtime.Marshaler, client ProfileClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var (
-		protoReq GetUserProfileRequest
-		metadata runtime.ServerMetadata
-	)
-	if req.Body != nil {
-		_, _ = io.Copy(io.Discard, req.Body)
-	}
-	msg, err := client.GetUserProfile(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-}
-
-func local_request_Profile_GetUserProfile_0(ctx context.Context, marshaler runtime.Marshaler, server ProfileServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var (
-		protoReq GetUserProfileRequest
-		metadata runtime.ServerMetadata
-	)
-	msg, err := server.GetUserProfile(ctx, &protoReq)
-	return msg, metadata, err
-}
-
 func request_Profile_GetProfile_0(ctx context.Context, marshaler runtime.Marshaler, client ProfileClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetProfileRequest
@@ -146,26 +125,6 @@ func local_request_Profile_UpdateProfile_0(ctx context.Context, marshaler runtim
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterProfileHandlerFromEndpoint instead.
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterProfileHandlerServer(ctx context.Context, mux *runtime.ServeMux, server ProfileServer) error {
-	mux.Handle(http.MethodGet, pattern_Profile_GetUserProfile_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api.v1.Profile/GetUserProfile", runtime.WithHTTPPathPattern("/api/v1/profile/getUserProfile"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_Profile_GetUserProfile_0(annotatedContext, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		forward_Profile_GetUserProfile_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-	})
 	mux.Handle(http.MethodGet, pattern_Profile_GetProfile_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -246,23 +205,6 @@ func RegisterProfileHandler(ctx context.Context, mux *runtime.ServeMux, conn *gr
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "ProfileClient" to call the correct interceptors. This client ignores the HTTP middlewares.
 func RegisterProfileHandlerClient(ctx context.Context, mux *runtime.ServeMux, client ProfileClient) error {
-	mux.Handle(http.MethodGet, pattern_Profile_GetUserProfile_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api.v1.Profile/GetUserProfile", runtime.WithHTTPPathPattern("/api/v1/profile/getUserProfile"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := request_Profile_GetUserProfile_0(annotatedContext, inboundMarshaler, client, req, pathParams)
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		forward_Profile_GetUserProfile_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
-	})
 	mux.Handle(http.MethodGet, pattern_Profile_GetProfile_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -301,13 +243,11 @@ func RegisterProfileHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 }
 
 var (
-	pattern_Profile_GetUserProfile_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v1", "profile", "getUserProfile"}, ""))
-	pattern_Profile_GetProfile_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "v1", "profile", "getProfile", "userId"}, ""))
-	pattern_Profile_UpdateProfile_0  = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "v1", "profile", "updateProfile", "userId"}, ""))
+	pattern_Profile_GetProfile_0    = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "v1", "profile", "getProfile", "userId"}, ""))
+	pattern_Profile_UpdateProfile_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "v1", "profile", "updateProfile", "userId"}, ""))
 )
 
 var (
-	forward_Profile_GetUserProfile_0 = runtime.ForwardResponseMessage
-	forward_Profile_GetProfile_0     = runtime.ForwardResponseMessage
-	forward_Profile_UpdateProfile_0  = runtime.ForwardResponseMessage
+	forward_Profile_GetProfile_0    = runtime.ForwardResponseMessage
+	forward_Profile_UpdateProfile_0 = runtime.ForwardResponseMessage
 )

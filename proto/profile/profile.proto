@@ -6,11 +6,6 @@ option go_package = "github.com/san-e4ek/app-protos/gen/go/profile";
 import "google/api/annotations.proto";
 
 service Profile {
-  rpc GetUserProfile(GetUserProfileRequest) returns (GetUserProfileResponse) {
-    option (google.api.http) = {
-      get : "/api/v1/profile/getUserProfile"
-    };
-  }
   rpc GetProfile(GetProfileRequest) returns (GetProfileResponse) {
     option (google.api.http) = {
       get : "/api/v1/profile/getProfile/{userId}"
@@ -24,14 +19,6 @@ service Profile {
   }
 }
 
-message GetUserProfileRequest {}
-
-message GetUserProfileResponse {
-  string userId = 1;
-  string email = 2;
-  string firstName = 3;
-  string lastName = 4;
-}
 message GetProfileRequest { string userId = 1; }
 
 message GetProfileResponse {
