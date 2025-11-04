@@ -29,14 +29,30 @@ service Auth {
       get: "/api/v1/auth/getUser"
     };
   };
+  rpc UpdateUserInfo(UpdateUserInfoRequest) returns (UpdateUserInfoResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/auth/updateUserInfo"
+      body: "*"
+    };
+  };
 }
+
+message UpdateUserInfoRequest {
+  string firstName = 2;
+  string lastName = 3;
+}
+
+message UpdateUserInfoResponse {}
 
 message GetUserRequest {}
 
 message GetUserResponse {
   int64 userId = 1;
   string email = 2;
-  repeated string roles = 3;
+  string createdAt = 3;
+  string updatedAt = 4;
+  string firstName = 5;
+  string lastName = 6;
 }
 
 message RefreshTokenRequest {

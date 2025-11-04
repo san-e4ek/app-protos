@@ -11,12 +11,6 @@ service Profile {
       get: "/api/v1/profile/getProfile/{userId}"
     };
   }
-  rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse) {
-    option (google.api.http) = {
-      post: "/api/v1/profile/updateProfile/{userId}"
-      body: "*"
-    };
-  }
 }
 
 message GetProfileRequest {
@@ -29,11 +23,3 @@ message GetProfileResponse {
   string firstName = 3;
   string lastName = 4;
 }
-
-message UpdateProfileRequest {
-  int64 userId = 1;
-  string firstName = 2;
-  string lastName = 3;
-}
-
-message UpdateProfileResponse {}
