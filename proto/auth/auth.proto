@@ -50,7 +50,7 @@ message SignUpRequest {
   string password = 2;
 }
 
-message SignUpResponse { string userId = 1; }
+message SignUpResponse {}
 
 message SignInRequest {
   string email = 1;
