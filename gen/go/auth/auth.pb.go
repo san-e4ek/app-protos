@@ -268,7 +268,6 @@ func (x *SignUpRequest) GetPassword() string {
 
 type SignUpResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=userId,proto3" json:"userId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -301,13 +300,6 @@ func (x *SignUpResponse) ProtoReflect() protoreflect.Message {
 // Deprecated: Use SignUpResponse.ProtoReflect.Descriptor instead.
 func (*SignUpResponse) Descriptor() ([]byte, []int) {
 	return file_auth_auth_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *SignUpResponse) GetUserId() string {
-	if x != nil {
-		return x.UserId
-	}
-	return ""
 }
 
 type SignInRequest struct {
@@ -431,9 +423,8 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\frefreshToken\x18\x02 \x01(\tR\frefreshToken\"A\n" +
 	"\rSignUpRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\"(\n" +
-	"\x0eSignUpResponse\x12\x16\n" +
-	"\x06userId\x18\x01 \x01(\tR\x06userId\"A\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"\x10\n" +
+	"\x0eSignUpResponse\"A\n" +
 	"\rSignInRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\"V\n" +

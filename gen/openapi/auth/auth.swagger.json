@@ -234,12 +234,7 @@
       }
     },
     "v1SignUpResponse": {
-      "type": "object",
-      "properties": {
-        "userId": {
-          "type": "string"
-        }
-      }
+      "type": "object"
     }
   }
 }
