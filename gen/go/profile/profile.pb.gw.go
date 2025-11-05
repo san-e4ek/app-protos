@@ -39,18 +39,9 @@ func request_Profile_GetProfile_0(ctx context.Context, marshaler runtime.Marshal
 	var (
 		protoReq GetProfileRequest
 		metadata runtime.ServerMetadata
-		err      error
 	)
 	if req.Body != nil {
 		_, _ = io.Copy(io.Discard, req.Body)
-	}
-	val, ok := pathParams["userId"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "userId")
-	}
-	protoReq.UserId, err = runtime.Int64(val)
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "userId", err)
 	}
 	msg, err := client.GetProfile(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
@@ -60,16 +51,7 @@ func local_request_Profile_GetProfile_0(ctx context.Context, marshaler runtime.M
 	var (
 		protoReq GetProfileRequest
 		metadata runtime.ServerMetadata
-		err      error
 	)
-	val, ok := pathParams["userId"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "userId")
-	}
-	protoReq.UserId, err = runtime.Int64(val)
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "userId", err)
-	}
 	msg, err := server.GetProfile(ctx, &protoReq)
 	return msg, metadata, err
 }
@@ -86,7 +68,7 @@ func RegisterProfileHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api.v1.Profile/GetProfile", runtime.WithHTTPPathPattern("/api/v1/profile/getProfile/{userId}"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/api.v1.Profile/GetProfile", runtime.WithHTTPPathPattern("/api/v1/profile/getProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -144,7 +126,7 @@ func RegisterProfileHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api.v1.Profile/GetProfile", runtime.WithHTTPPathPattern("/api/v1/profile/getProfile/{userId}"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/api.v1.Profile/GetProfile", runtime.WithHTTPPathPattern("/api/v1/profile/getProfile"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -161,7 +143,7 @@ func RegisterProfileHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 }
 
 var (
-	pattern_Profile_GetProfile_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "v1", "profile", "getProfile", "userId"}, ""))
+	pattern_Profile_GetProfile_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v1", "profile", "getProfile"}, ""))
 )
 
 var (

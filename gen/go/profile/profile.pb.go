@@ -24,7 +24,6 @@ const (
 
 type GetProfileRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        int64                  `protobuf:"varint,1,opt,name=userId,proto3" json:"userId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -59,19 +58,14 @@ func (*GetProfileRequest) Descriptor() ([]byte, []int) {
 	return file_profile_profile_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetProfileRequest) GetUserId() int64 {
-	if x != nil {
-		return x.UserId
-	}
-	return 0
-}
-
 type GetProfileResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        int64                  `protobuf:"varint,1,opt,name=userId,proto3" json:"userId,omitempty"`
 	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
 	FirstName     string                 `protobuf:"bytes,3,opt,name=firstName,proto3" json:"firstName,omitempty"`
 	LastName      string                 `protobuf:"bytes,4,opt,name=lastName,proto3" json:"lastName,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,5,opt,name=createdAt,proto3" json:"createdAt,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,6,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -134,21 +128,36 @@ func (x *GetProfileResponse) GetLastName() string {
 	return ""
 }
 
+func (x *GetProfileResponse) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *GetProfileResponse) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
 var File_profile_profile_proto protoreflect.FileDescriptor
 
 const file_profile_profile_proto_rawDesc = "" +
 	"\n" +
-	"\x15profile/profile.proto\x12\x06api.v1\x1a\x1cgoogle/api/annotations.proto\"+\n" +
-	"\x11GetProfileRequest\x12\x16\n" +
-	"\x06userId\x18\x01 \x01(\x03R\x06userId\"|\n" +
+	"\x15profile/profile.proto\x12\x06api.v1\x1a\x1cgoogle/api/annotations.proto\"\x13\n" +
+	"\x11GetProfileRequest\"\xb8\x01\n" +
 	"\x12GetProfileResponse\x12\x16\n" +
 	"\x06userId\x18\x01 \x01(\x03R\x06userId\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1c\n" +
 	"\tfirstName\x18\x03 \x01(\tR\tfirstName\x12\x1a\n" +
-	"\blastName\x18\x04 \x01(\tR\blastName2{\n" +
-	"\aProfile\x12p\n" +
+	"\blastName\x18\x04 \x01(\tR\blastName\x12\x1c\n" +
+	"\tcreatedAt\x18\x05 \x01(\tR\tcreatedAt\x12\x1c\n" +
+	"\tupdatedAt\x18\x06 \x01(\tR\tupdatedAt2r\n" +
+	"\aProfile\x12g\n" +
 	"\n" +
-	"GetProfile\x12\x19.api.v1.GetProfileRequest\x1a\x1a.api.v1.GetProfileResponse\"+\x82\xd3\xe4\x93\x02%\x12#/api/v1/profile/getProfile/{userId}B/Z-github.com/san-e4ek/app-protos/gen/go/profileb\x06proto3"
+	"GetProfile\x12\x19.api.v1.GetProfileRequest\x1a\x1a.api.v1.GetProfileResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/api/v1/profile/getProfileB/Z-github.com/san-e4ek/app-protos/gen/go/profileb\x06proto3"
 
 var (
 	file_profile_profile_proto_rawDescOnce sync.Once

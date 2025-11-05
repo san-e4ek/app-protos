@@ -24,45 +24,8 @@ service Auth {
       body: "*"
     };
   };
-  rpc GetUser(GetUserRequest) returns (GetUserResponse) {
-    option (google.api.http) = {
-      get: "/api/v1/auth/getUser"
-    };
-  };
-  rpc UpdateUserInfo(UpdateUserInfoRequest) returns (UpdateUserInfoResponse) {
-    option (google.api.http) = {
-      post: "/api/v1/auth/updateUserInfo"
-      body: "*"
-    };
-  };
 }
 
-message UpdateUserInfoRequest {
-  string firstName = 2;
-  string lastName = 3;
-}
-
-message UpdateUserInfoResponse {}
-
-message GetUserRequest {}
-
-message GetUserResponse {
-  int64 userId = 1;
-  string email = 2;
-  string createdAt = 3;
-  string updatedAt = 4;
-  string firstName = 5;
-  string lastName = 6;
-}
-
-message RefreshTokenRequest {
-  string refreshToken = 1;
-}
-
-message RefreshTokenResponse {
-  string accessToken = 1;
-  string refreshToken = 2;
-}
 message SignUpRequest {
   string email = 1;
   string password = 2;
@@ -76,6 +39,15 @@ message SignInRequest {
 }
 
 message SignInResponse {
+  string accessToken = 1;
+  string refreshToken = 2;
+}
+
+message RefreshTokenRequest {
+  string refreshToken = 1;
+}
+
+message RefreshTokenResponse {
   string accessToken = 1;
   string refreshToken = 2;
 }

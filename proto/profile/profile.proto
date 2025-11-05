@@ -8,18 +8,18 @@ import "google/api/annotations.proto";
 service Profile {
   rpc GetProfile(GetProfileRequest) returns (GetProfileResponse) {
     option (google.api.http) = {
-      get: "/api/v1/profile/getProfile/{userId}"
+      get: "/api/v1/profile/getProfile"
     };
   }
 }
 
-message GetProfileRequest {
-  int64 userId = 1;
-}
+message GetProfileRequest {}
 
 message GetProfileResponse {
   int64 userId = 1;
   string email = 2;
   string firstName = 3;
   string lastName = 4;
+  string createdAt = 5;
+  string updatedAt = 6;
 }

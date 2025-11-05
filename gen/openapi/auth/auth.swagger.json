@@ -16,28 +16,6 @@
     "application/json"
   ],
   "paths": {
-    "/api/v1/auth/getUser": {
-      "get": {
-        "operationId": "Auth_GetUser",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1GetUserResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "tags": [
-          "Auth"
-        ]
-      }
-    },
     "/api/v1/auth/refreshToken": {
       "post": {
         "operationId": "Auth_RefreshToken",
@@ -133,38 +111,6 @@
           "Auth"
         ]
       }
-    },
-    "/api/v1/auth/updateUserInfo": {
-      "post": {
-        "operationId": "Auth_UpdateUserInfo",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1UpdateUserInfoResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1UpdateUserInfoRequest"
-            }
-          }
-        ],
-        "tags": [
-          "Auth"
-        ]
-      }
     }
   },
   "definitions": {
@@ -193,30 +139,6 @@
             "type": "object",
             "$ref": "#/definitions/protobufAny"
           }
-        }
-      }
-    },
-    "v1GetUserResponse": {
-      "type": "object",
-      "properties": {
-        "userId": {
-          "type": "string",
-          "format": "int64"
-        },
-        "email": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
         }
       }
     },
@@ -273,20 +195,6 @@
       }
     },
     "v1SignUpResponse": {
-      "type": "object"
-    },
-    "v1UpdateUserInfoRequest": {
-      "type": "object",
-      "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        }
-      }
-    },
-    "v1UpdateUserInfoResponse": {
       "type": "object"
     }
   }

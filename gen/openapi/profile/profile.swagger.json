@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/api/v1/profile/getProfile/{userId}": {
+    "/api/v1/profile/getProfile": {
       "get": {
         "operationId": "Profile_GetProfile",
         "responses": {
@@ -33,15 +33,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "int64"
-          }
-        ],
         "tags": [
           "Profile"
         ]
@@ -91,6 +82,12 @@
           "type": "string"
         },
         "lastName": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
           "type": "string"
         }
       }
