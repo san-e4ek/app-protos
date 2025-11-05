@@ -37,6 +37,38 @@
           "Profile"
         ]
       }
+    },
+    "/api/v1/profile/updateProfile": {
+      "post": {
+        "operationId": "Profile_UpdateProfile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateProfileResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateProfileRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Profile"
+        ]
+      }
     }
   },
   "definitions": {
@@ -91,6 +123,24 @@
           "type": "string"
         }
       }
+    },
+    "v1UpdateProfileRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UpdateProfileResponse": {
+      "type": "object"
     }
   }
 }

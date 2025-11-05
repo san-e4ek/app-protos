@@ -11,6 +11,13 @@ service Profile {
       get: "/api/v1/profile/getProfile"
     };
   }
+
+  rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/profile/updateProfile"
+      body: "*"
+    };
+  }
 }
 
 message GetProfileRequest {}
@@ -23,3 +30,11 @@ message GetProfileResponse {
   string createdAt = 5;
   string updatedAt = 6;
 }
+
+message UpdateProfileRequest {
+  int64 userId = 1;
+  string firstName = 2;
+  string lastName = 3;
+}
+
+message UpdateProfileResponse {}
